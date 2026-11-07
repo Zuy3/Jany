@@ -1,0 +1,148 @@
+[
+  {
+    "id": "lead_1793473629757_5ctlr",
+    "name": "Mariano Silva",
+    "email": "mariano@exemplo.com",
+    "whatsapp": "(11) 98765-4321",
+    "marketingConsent": true,
+    "profileResult": {
+      "profileId": "fermentative",
+      "profileTitle": "Perfil Sensibilidade Fermentativa",
+      "bloatingScore": 68,
+      "severityLabel": "Moderada"
+    },
+    "answers": {
+      "q1_age": "opt_age_36_45"
+    },
+    "createdAt": "2026-10-31T19:07:09.757Z",
+    "forwardedToWebhook": false,
+    "webhookStatus": "Webhook externo não configurado (armazenado localmente com segurança)"
+  },
+  {
+    "id": "lead_1793475043620_ubvt7",
+    "name": "Juliana Costa",
+    "email": "juliana@gmail.com",
+    "marketingConsent": true,
+    "profileResult": {
+      "profileId": "fermentative",
+      "profileTitle": "Perfil Sensibilidade Fermentativa",
+      "bloatingScore": 78,
+      "severityLabel": "Acentuada"
+    },
+    "answers": {
+      "q1_age": "opt_age_36_45"
+    },
+    "createdAt": "2026-10-31T19:30:43.620Z",
+    "forwardedToWebhook": false,
+    "webhookStatus": "Webhook externo não configurado (armazenado localmente com segurança)"
+  },
+  {
+    "id": "lead_1793534809025_rpw0z",
+    "name": "Camila Rocha",
+    "email": "camila@gmail.com",
+    "marketingConsent": true,
+    "profileResult": {
+      "profileId": "fermentative",
+      "profileTitle": "Perfil Sensibilidade Fermentativa",
+      "bloatingScore": 82,
+      "severityLabel": "Acentuada"
+    },
+    "answers": {
+      "q1_clothes_mirror": "opt_mirror_pregnant"
+    },
+    "createdAt": "2026-11-01T12:06:49.025Z",
+    "forwardedToWebhook": false,
+    "webhookStatus": "Webhook externo não configurado (armazenado localmente com segurança)"
+  },
+  {
+    "id": "lead_1793748825319_bns0h",
+    "name": "Teste Verificacao",
+    "email": "teste.verificacao@zuyzelia.test",
+    "marketingConsent": true,
+    "profileResult": {
+      "profileId": "fermentative",
+      "profileTitle": "Perfil Fermentativo",
+      "bloatingScore": 82,
+      "severityLabel": "Acentuada"
+    },
+    "answers": {
+      "q1_age_metabolism": "opt_age_28_39"
+    },
+    "createdAt": "2026-11-03T23:33:45.319Z",
+    "forwardedToWebhook": false,
+    "webhookStatus": "Webhook externo não configurado (armazenado localmente com segurança)"
+  },
+  {
+    "id": "lead_1793839352795_7ab7l",
+    "name": "Mariana Teste",
+    "email": "mariana.audit@gmail.com",
+    "marketingConsent": true,
+    "profileResult": {
+      "profileId": "fermentative",
+      "profileTitle": "Perfil Fermentativo & Gases",
+      "bloatingScore": 78,
+      "severityLabel": "Acentuada"
+    },
+    "answers": {
+      "q1_age_metabolism": "opt_age_28_39"
+    },
+    "createdAt": "2026-11-05T00:42:32.795Z",
+    "forwardedToWebhook": false,
+    "webhookStatus": "Webhook externo não configurado (armazenado localmente com segurança)"
+  },
+  {
+    "id": "lead_1793839910005_09nst",
+    "name": "zoe",
+    "email": "marianozui@hotmail.com",
+    "marketingConsent": true,
+    "profileResult": {
+      "profileId": "fermentative",
+      "profileTitle": "Perfil Fermentativo & Gases Digestivos (Sensibilidade aos FODMAPs)",
+      "bloatingScore": 84,
+      "severityLabel": "Acentuada"
+    },
+    "answers": {
+      "q1_age_metabolism": "opt_age_28_39",
+      "q2_first_name": "zoe",
+      "q3_bloating_timing": "opt_timing_post_meal_pain",
+      "q4_clothes_selfesteem": "opt_impact_energy_mood",
+      "q5_micro_yes_consistency": "opt_microyes_already_noticed",
+      "q6_previous_attempts": "opt_tried_expensive_enzymes",
+      "q7_seven_day_goal": "opt_goal_all_above"
+    },
+    "createdAt": "2026-11-05T00:51:50.005Z",
+    "forwardedToWebhook": false,
+    "webhookStatus": "Webhook externo não configurado (armazenado localmente com segurança)"
+  },
+  {
+    "id": "lead_1793840140620_rvrl5",
+    "name": "Mariana Teste",
+    "email": "mariana.teste@exemplo.com",
+    "marketingConsent": true,
+    "profileResult": {
+      "archetypeId": "fermentative",
+      "title": "Perfil Fermentativo Intestinal",
+      "severity": "Acentuada",
+      "bloatingScore": 78
+    },
+    "createdAt": "2026-11-05T00:55:40.620Z",
+    "forwardedToWebhook": false,
+    "webhookStatus": "Webhook externo não configurado (armazenado localmente com segurança)"
+  },
+  {
+    "id": "lead_1793961314695_34dup",
+    "name": "Juliana Costa",
+    "email": "juliana.costa@exemplo.com",
+    "whatsapp": "11988887777",
+    "marketingConsent": true,
+    "profileResult": {
+      "archetypeId": "fermentative",
+      "title": "Perfil Fermentativo & Gases Digestivos",
+      "severity": "Acentuada",
+      "bloatingScore": 82
+    },
+    "createdAt": "2026-11-06T10:35:14.695Z",
+    "forwardedToWebhook": false,
+    "webhookStatus": "Webhook externo não configurado (armazenado localmente com segurança)"
+  }
+]

@@ -1,0 +1,6 @@
+{
+  "name": "ZuyZelia - Quiz de Hábitos & Conforto Abdominal",
+  "description": "Descubra o seu perfil de sensibilidade alimentar e percepção de inchaço abdominal com o quiz educativo da ZuyZelia.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
