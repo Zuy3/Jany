@@ -107,7 +107,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
 
           <div className="flex items-center gap-2 text-xs text-stone-600 font-medium">
             <img
-              src="/assets/aistudio/novo_899c45c6.png"
+              src="./assets/aistudio/novo_899c45c6.png"
               alt="Biomédico Zuy"
               className="w-7 h-7 rounded-full object-cover object-top border border-emerald-600 shadow-sm"
             />
@@ -234,7 +234,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
             <div className="lg:col-span-5 flex flex-col items-center">
               <div className="relative w-full max-w-[340px] rounded-2xl overflow-hidden shadow-2xl border border-stone-700/80 group">
                 <img
-                  src="/assets/images/ebook_bundle_showcase_1793474873049.jpg"
+                  src="./assets/images/ebook_bundle_showcase_1793474873049.jpg"
                   alt="Kit da Solução Completa Barriga Chapada em 7 Dias - @zuy_silva emagrecer"
                   referrerPolicy="no-referrer"
                   className="w-full h-auto object-cover group-hover:scale-102 transition-transform duration-300"
@@ -382,7 +382,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
       <div className="bg-white rounded-3xl border border-stone-200/90 shadow-md p-6 sm:p-8">
         <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6">
           <img
-            src="/assets/aistudio/novo_899c45c6.png"
+            src="./assets/aistudio/novo_899c45c6.png"
             alt="Biomédico Zuy"
             className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover object-top border-2 border-emerald-600 shadow-md shrink-0"
           />

@@ -20,7 +20,7 @@ export const SOCIAL_PROOF_ITEMS: SocialProofItem[] = [
   {
     id: 'proof_ba_1',
     type: 'before_after',
-    imageSrc: '/assets/aistudio/1d8da273ae648a8f3190d23e08e39821_e74dc1cc.jpeg',
+    imageSrc: './assets/aistudio/1d8da273ae648a8f3190d23e08e39821_e74dc1cc.jpeg',
     authorName: 'Maria',
     title: 'Maria: "Aderi ao programa e estou amando, perdi 3 kg em 15 dias"',
     subtitle: 'Alívio visível na projeção do abdômen e calças fechando com folga.',
@@ -33,7 +33,7 @@ export const SOCIAL_PROOF_ITEMS: SocialProofItem[] = [
   {
     id: 'proof_cm_1',
     type: 'comment',
-    imageSrc: '/assets/aistudio/IMG_6599_f1ff0c2e.jpeg',
+    imageSrc: './assets/aistudio/IMG_6599_f1ff0c2e.jpeg',
     title: 'Comentário Verificado no Instagram',
     authorName: 'josilene5508',
     platform: 'Instagram',
@@ -46,7 +46,7 @@ export const SOCIAL_PROOF_ITEMS: SocialProofItem[] = [
   {
     id: 'proof_ba_2',
     type: 'before_after',
-    imageSrc: '/assets/aistudio/97fc1627b3371736715ec79fa2aced8b_87f885aa.jpeg',
+    imageSrc: './assets/aistudio/97fc1627b3371736715ec79fa2aced8b_87f885aa.jpeg',
     authorName: 'Luciana',
     title: 'Luciana: "A sensação de peso no baixo ventre sumiu por completo"',
     subtitle: 'Abdômen inferior visivelmente mais alinhado e sem retenção.',
@@ -59,7 +59,7 @@ export const SOCIAL_PROOF_ITEMS: SocialProofItem[] = [
   {
     id: 'proof_cm_2',
     type: 'comment',
-    imageSrc: '/assets/aistudio/IMG_7861_daf96356.jpeg',
+    imageSrc: './assets/aistudio/IMG_7861_daf96356.jpeg',
     title: 'Depoimento em Vídeo no YouTube',
     authorName: '@ericaferreira1740',
     platform: 'YouTube',
@@ -71,7 +71,7 @@ export const SOCIAL_PROOF_ITEMS: SocialProofItem[] = [
   {
     id: 'proof_ba_3',
     type: 'before_after',
-    imageSrc: '/assets/aistudio/177c0e77cf36975cd832a569fa1a0282_b4fe2060.jpeg',
+    imageSrc: './assets/aistudio/177c0e77cf36975cd832a569fa1a0282_b4fe2060.jpeg',
     authorName: 'Camila',
     title: 'Camila: "Minha calça legging preta favorita fechou sem aperto"',
     subtitle: 'Redução das dobras e cintura desenhada sem passar fome.',
@@ -84,7 +84,7 @@ export const SOCIAL_PROOF_ITEMS: SocialProofItem[] = [
   {
     id: 'proof_cm_3',
     type: 'comment',
-    imageSrc: '/assets/aistudio/IMG_42582_8db4673a.jpeg',
+    imageSrc: './assets/aistudio/IMG_42582_8db4673a.jpeg',
     title: 'Comentário no Instagram',
     authorName: 'princesgirlbijus',
     platform: 'Instagram',
@@ -96,7 +96,7 @@ export const SOCIAL_PROOF_ITEMS: SocialProofItem[] = [
   {
     id: 'proof_ba_4',
     type: 'before_after',
-    imageSrc: '/assets/aistudio/5976e4233c10c6c5458a59c72f6ee753_78c404c8.jpeg',
+    imageSrc: './assets/aistudio/5976e4233c10c6c5458a59c72f6ee753_78c404c8.jpeg',
     authorName: 'Patrícia',
     title: 'Patrícia: "Desinchei a barriga e as costas em apenas 7 dias"',
     subtitle: 'Alívio na retenção linfática dorsal e silhueta mais harmoniosa.',
@@ -109,7 +109,7 @@ export const SOCIAL_PROOF_ITEMS: SocialProofItem[] = [
   {
     id: 'proof_cm_4',
     type: 'comment',
-    imageSrc: '/assets/aistudio/IMG_6601_61ecc3d3.jpeg',
+    imageSrc: './assets/aistudio/IMG_6601_61ecc3d3.jpeg',
     title: 'Comentários da Comunidade no Instagram',
     authorName: 'kelly_cardoso7',
     platform: 'Instagram',
@@ -121,7 +121,7 @@ export const SOCIAL_PROOF_ITEMS: SocialProofItem[] = [
   {
     id: 'proof_ba_5',
     type: 'before_after',
-    imageSrc: '/assets/aistudio/c85c2a4a0e1f0f2922f1f42f2e9b83a5_bac2f03d.jpeg',
+    imageSrc: './assets/aistudio/c85c2a4a0e1f0f2922f1f42f2e9b83a5_bac2f03d.jpeg',
     authorName: 'Fernanda',
     title: 'Fernanda: "Não pareço mais grávida no fim do dia de trabalho"',
     subtitle: 'Diminuição acentuada da projeção gástrica frontal.',
@@ -134,7 +134,7 @@ export const SOCIAL_PROOF_ITEMS: SocialProofItem[] = [
   {
     id: 'proof_cm_5',
     type: 'comment',
-    imageSrc: '/assets/aistudio/IMG_8677_64b97d36.jpeg',
+    imageSrc: './assets/aistudio/IMG_8677_64b97d36.jpeg',
     title: 'Depoimento Pós-Gestação no YouTube',
     authorName: '@Samuel-f4i3x',
     platform: 'YouTube',
@@ -146,7 +146,7 @@ export const SOCIAL_PROOF_ITEMS: SocialProofItem[] = [
   {
     id: 'proof_ba_6',
     type: 'before_after',
-    imageSrc: '/assets/aistudio/c23622bbead7049a621fc43c6d2e6893_3a05f201.jpeg',
+    imageSrc: './assets/aistudio/c23622bbead7049a621fc43c6d2e6893_3a05f201.jpeg',
     authorName: 'Juliana',
     title: 'Juliana: "Estômago leve e sem queimação após o almoço"',
     subtitle: 'Menos gases retidos e digestão suave o dia todo.',
@@ -159,7 +159,7 @@ export const SOCIAL_PROOF_ITEMS: SocialProofItem[] = [
   {
     id: 'proof_cm_6',
     type: 'comment',
-    imageSrc: '/assets/aistudio/IMG_6600_00331ab5.jpeg',
+    imageSrc: './assets/aistudio/IMG_6600_00331ab5.jpeg',
     title: 'Relato no Instagram',
     authorName: 'brun0_m0nteir0',
     platform: 'Instagram',
@@ -171,7 +171,7 @@ export const SOCIAL_PROOF_ITEMS: SocialProofItem[] = [
   {
     id: 'proof_ba_7',
     type: 'before_after',
-    imageSrc: '/assets/aistudio/d8d0d93e77484e9048a47df3961f9cd5_4d8d9856.jpeg',
+    imageSrc: './assets/aistudio/d8d0d93e77484e9048a47df3961f9cd5_4d8d9856.jpeg',
     authorName: 'Renata',
     title: 'Renata: "Meu shorts jeans que não fechava agora tem folga de sobra"',
     subtitle: 'A prova concreta de que as roupas voltam a servir sem sofrimento.',
@@ -184,7 +184,7 @@ export const SOCIAL_PROOF_ITEMS: SocialProofItem[] = [
   {
     id: 'proof_cm_7',
     type: 'comment',
-    imageSrc: '/assets/aistudio/IMG_6602_431c4bf6.jpeg',
+    imageSrc: './assets/aistudio/IMG_6602_431c4bf6.jpeg',
     title: 'Engajamento e Comentários no Reels',
     authorName: 'Comunidade @zuy_silva emagrecer',
     platform: 'Instagram',

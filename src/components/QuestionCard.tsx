@@ -92,7 +92,7 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
 
         <div className="w-20 h-20 mx-auto mb-4 rounded-full overflow-hidden border-2 border-emerald-600 shadow-md">
           <img
-            src="/assets/aistudio/novo_899c45c6.png"
+            src="./assets/aistudio/novo_899c45c6.png"
             alt="Biomédico Zuy"
             className="w-full h-full object-cover object-top"
           />

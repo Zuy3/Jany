@@ -112,7 +112,7 @@ export const LeadCaptureScreen: React.FC<LeadCaptureScreenProps> = ({
         {/* Reassuring Specialist Validation Badge */}
         <div className="flex items-center gap-3 p-3 bg-emerald-50/70 border border-emerald-200/80 rounded-2xl mb-5">
           <img
-            src="/assets/aistudio/novo_899c45c6.png"
+            src="./assets/aistudio/novo_899c45c6.png"
             alt="Biomédico Zuy"
             className="w-12 h-12 rounded-full object-cover object-top border-2 border-emerald-600 shadow-sm shrink-0"
           />

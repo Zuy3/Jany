@@ -6,7 +6,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     order: 1,
     title: 'Qual é a sua faixa etária?',
     subtitle: 'A partir dos 28 anos, o ritmo digestivo muda e certos alimentos passam a fermentar com mais facilidade.',
-    image: '/assets/images/quiz_q1_age_metabolism_1793838952030.jpg',
+    image: './assets/images/quiz_q1_age_metabolism_1793838952030.jpg',
     imageAlt: 'Mulher adulta de 34 anos em cozinha moderna com chá morno matinal',
     options: [
       {
@@ -46,7 +46,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     title: 'Como o Biomédico Zuy pode te chamar?',
     subtitle: 'Usaremos o seu primeiro nome para personalizar o seu diagnóstico e o seu cronograma de 7 dias.',
     inputPlaceholder: 'Digite seu primeiro nome aqui (ex: Mariana)',
-    image: '/assets/images/quiz_q2_personal_intake_1793838977007.jpg',
+    image: './assets/images/quiz_q2_personal_intake_1793838977007.jpg',
     imageAlt: 'Caderno de avaliação de linho e copo com água pura, limão e hortelã fresca',
     options: []
   },
@@ -55,7 +55,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     order: 3,
     title: 'Em que momento do dia a sua barriga mais estufa?',
     subtitle: 'O horário do desconforto indica o gatilho biológico da sua sobrecarga digestiva.',
-    image: '/assets/images/quiz_q3_bloating_timing_1793838993430.jpg',
+    image: './assets/images/quiz_q3_bloating_timing_1793838993430.jpg',
     imageAlt: 'Mulher descansando confortavelmente com as mãos sobre o abdômen ao entardecer',
     educationalSnippet: {
       tag: 'Fato Biológico Comprovado',
@@ -97,7 +97,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     order: 4,
     title: 'Como esse inchaço interfere no seu dia a dia?',
     subtitle: 'O desconforto abdominal impacta diretamente a sua relação com as roupas e a autoestima.',
-    image: '/assets/images/quiz_q4_clothes_dilemma_1793839008657.jpg',
+    image: './assets/images/quiz_q4_clothes_dilemma_1793839008657.jpg',
     imageAlt: 'Mulher avaliando o caimento da cintura de calça clássica em quarto luminoso',
     options: [
       {
@@ -135,7 +135,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     order: 5,
     title: 'Quais destes alimentos você consome com frequência e sente que pioram o estufamento?',
     subtitle: 'Certos alimentos possuem compostos de difícil digestão (FODMAPs) que fermentam rapidamente no intestino.',
-    image: '/assets/images/quiz_q5_whole_foods_gut_1793839023418.jpg',
+    image: './assets/images/quiz_q5_whole_foods_gut_1793839023418.jpg',
     imageAlt: 'Alimentos naturais anti-inflamatórios frescos e leves para o intestino',
     educationalSnippet: {
       tag: 'Gatilho Biológico Comprovado',
@@ -185,7 +185,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     type: 'empathetic_interlude',
     title: '{Nome}, o que você sente tem explicação biológica.',
     subtitle: 'A grande maioria das mulheres atendidas pelo @zuy_silva emagrecer achava que a barriga dilatada era gordura difícil de perder. Na realidade, é inflamação digestiva e retenção de gases por alimentos que fermentam em excesso. Com pequenos ajustes no dia a dia, o alívio começa em 7 dias.',
-    image: '/assets/aistudio/novo_899c45c6.png',
+    image: './assets/aistudio/novo_899c45c6.png',
     imageAlt: 'Biomédico Zuy',
     options: []
   },
@@ -194,7 +194,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     order: 7,
     title: 'O que você já tentou fazer para desinchar?',
     subtitle: 'Entender suas tentativas anteriores nos ajuda a apontar o caminho mais rápido para o seu alívio.',
-    image: '/assets/images/quiz_q6_herbal_infusions_1793839040667.jpg',
+    image: './assets/images/quiz_q6_herbal_infusions_1793839040667.jpg',
     imageAlt: 'Infusão de ervas carminativas com hortelã, gengibre e camomila em bule de vidro',
     options: [
       {
@@ -232,7 +232,7 @@ export const QUIZ_QUESTIONS: QuizQuestion[] = [
     order: 8,
     title: '{Nome}, qual é o seu principal objetivo para o próximo domingo?',
     subtitle: 'Ao definir sua prioridade, calibramos o cronograma exato do seu protocolo de alívio.',
-    image: '/assets/images/quiz_q7_wellness_vitality_1793839060156.jpg',
+    image: './assets/images/quiz_q7_wellness_vitality_1793839060156.jpg',
     imageAlt: 'Mulher adulta com postura serena e roupas de linho confortáveis ao ar livre',
     options: [
       {

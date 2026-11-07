@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { X, Database, CheckCircle2, AlertTriangle, RefreshCw, Copy, Check, ExternalLink } from 'lucide-react';
+import { X, Database, CheckCircle2, AlertTriangle, RefreshCw, Copy, Check, ExternalLink, Download } from 'lucide-react';
 import { IntegrationStatus } from '../types/quiz';
 
 interface IntegrationModalProps {
@@ -117,6 +117,34 @@ LEADS_WEBHOOK_URL="https://seu-endpoint-ou-zapier-webhook.com"`;
 
         {/* Modal Body */}
         <div className="p-6 overflow-y-auto space-y-6 text-sm text-stone-700">
+          {/* GitHub Pages Direct Package Download */}
+          <div className="p-4 bg-stone-900 text-white rounded-2xl space-y-3 shadow-md border border-stone-800">
+            <div className="flex items-center justify-between">
+              <div className="flex items-center gap-2">
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span className="text-xs font-bold uppercase tracking-wider text-stone-200">
+                  Pacote HTML Estático para GitHub Pages
+                </span>
+              </div>
+              <span className="text-[10px] bg-emerald-500/20 text-emerald-300 font-bold px-2 py-0.5 rounded-full border border-emerald-500/30">
+                100% Pronto
+              </span>
+            </div>
+            <p className="text-xs text-stone-300 leading-relaxed">
+              O projeto foi compilado com caminhos relativos (<code className="text-emerald-400 text-[11px]">./assets/</code>), acompanhado do <code className="text-emerald-400 text-[11px]">.nojekyll</code> e do fallback <code className="text-emerald-400 text-[11px]">404.html</code> para funcionar perfeitamente em qualquer repositório no GitHub Pages.
+            </p>
+            <div className="pt-1">
+              <a
+                href="./quiz-zuy-emagrecer-html.zip"
+                download="quiz-zuy-emagrecer-html.zip"
+                className="inline-flex items-center gap-2 px-4 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-xl transition-all shadow-md cursor-pointer"
+              >
+                <Download className="w-4 h-4" />
+                <span>Baixar Projeto HTML Pronto (.ZIP - 3.5 MB)</span>
+              </a>
+            </div>
+          </div>
+
           {/* Status Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div className="p-3.5 rounded-xl border border-stone-200 bg-stone-50/60">

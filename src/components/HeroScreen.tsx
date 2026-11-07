@@ -66,7 +66,7 @@ export const HeroScreen: React.FC<HeroScreenProps> = ({
             {/* Specialist Quote Box */}
             <div className="flex items-center gap-3.5 p-3.5 bg-emerald-50/70 border border-emerald-200/70 rounded-2xl mb-7">
               <img
-                src="/assets/aistudio/novo_899c45c6.png"
+                src="./assets/aistudio/novo_899c45c6.png"
                 alt="Biomédico Zuy"
                 className="w-12 h-12 rounded-full object-cover object-top border-2 border-emerald-600 shadow-sm shrink-0"
               />
@@ -105,10 +105,10 @@ export const HeroScreen: React.FC<HeroScreenProps> = ({
             {/* Social Proof Trust Snippet */}
             <div className="flex items-center gap-3 pt-4 border-t border-stone-200/60 mt-4">
               <div className="flex -space-x-2 overflow-hidden shrink-0">
-                <img className="inline-block h-7 w-7 rounded-full ring-2 ring-white object-cover" src="/assets/aistudio/1d8da273ae648a8f3190d23e08e39821_e74dc1cc.jpeg" alt="Transformação 1" />
-                <img className="inline-block h-7 w-7 rounded-full ring-2 ring-white object-cover" src="/assets/aistudio/97fc1627b3371736715ec79fa2aced8b_87f885aa.jpeg" alt="Transformação 2" />
-                <img className="inline-block h-7 w-7 rounded-full ring-2 ring-white object-cover" src="/assets/aistudio/177c0e77cf36975cd832a569fa1a0282_b4fe2060.jpeg" alt="Transformação 3" />
-                <img className="inline-block h-7 w-7 rounded-full ring-2 ring-white object-cover" src="/assets/aistudio/d8d0d93e77484e9048a47df3961f9cd5_4d8d9856.jpeg" alt="Transformação 4" />
+                <img className="inline-block h-7 w-7 rounded-full ring-2 ring-white object-cover" src="./assets/aistudio/1d8da273ae648a8f3190d23e08e39821_e74dc1cc.jpeg" alt="Transformação 1" />
+                <img className="inline-block h-7 w-7 rounded-full ring-2 ring-white object-cover" src="./assets/aistudio/97fc1627b3371736715ec79fa2aced8b_87f885aa.jpeg" alt="Transformação 2" />
+                <img className="inline-block h-7 w-7 rounded-full ring-2 ring-white object-cover" src="./assets/aistudio/177c0e77cf36975cd832a569fa1a0282_b4fe2060.jpeg" alt="Transformação 3" />
+                <img className="inline-block h-7 w-7 rounded-full ring-2 ring-white object-cover" src="./assets/aistudio/d8d0d93e77484e9048a47df3961f9cd5_4d8d9856.jpeg" alt="Transformação 4" />
               </div>
               <div className="text-[11px] text-stone-600 leading-tight">
                 <div className="font-bold text-stone-900 flex items-center gap-1">

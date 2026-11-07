@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <script>
+      (function() {
+        try {
+          var realFetch = window.fetch;
+          var currentFetch = function() {
+            return realFetch ? realFetch.apply(window, arguments) : Promise.reject(new Error('Fetch not available'));
+          };
+          Object.defineProperty(window, 'fetch', {
+            get: function() {
+              return currentFetch;
+            },
+            set: function(val) {
+              currentFetch = val;
+            },
+            configurable: true,
+            enumerable: true
+          });
+        } catch (e) {
+          // ignore
+        }
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>@zuy_silva emagrecer - Quiz de Hábitos & Conforto Abdominal</title>
+    <meta name="description" content="Descubra o seu perfil de sensibilidade alimentar e percepção de inchaço abdominal com o quiz educativo do @zuy_silva emagrecer." />
+    <meta property="og:title" content="@zuy_silva emagrecer - Quiz de Hábitos & Conforto Abdominal" />
+    <meta property="og:description" content="Descubra o seu perfil de sensibilidade alimentar e percepção de inchaço abdominal com o quiz educativo do @zuy_silva emagrecer." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <script type="module" crossorigin src="./assets/index-CvsHHzdm.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DW2sTH55.css">
+  </head>
+  <body class="bg-[#FAF9F5] text-slate-800 antialiased min-h-screen selection:bg-emerald-200 selection:text-emerald-950">
+    <div id="root"></div>
+  </body>
+</html>
+
