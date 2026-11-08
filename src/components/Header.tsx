@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Database, HelpCircle, Volume2, VolumeX, Download } from 'lucide-react';
+import { Volume2, VolumeX } from 'lucide-react';
 
 interface HeaderProps {
   onOpenIntegrationModal: () => void;
@@ -57,7 +57,7 @@ export const Header: React.FC<HeaderProps> = ({
           </a>
         </nav>
 
-        {/* Zone 3: Single Primary Action / System Status & Audio Toggle */}
+        {/* Zone 3: Audio Toggle */}
         <div className="flex items-center gap-2 shrink-0">
           {onToggleSound && (
             <button
@@ -74,27 +74,6 @@ export const Header: React.FC<HeaderProps> = ({
               )}
             </button>
           )}
-
-          <a
-            href="./quiz-zuy-emagrecer-html.zip"
-            download="quiz-zuy-emagrecer-html.zip"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-white bg-emerald-800 hover:bg-emerald-900 rounded-md transition-all shadow-xs cursor-pointer"
-            title="Baixar pacote completo em HTML pronto para publicar no GitHub Pages"
-          >
-            <Download className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">Baixar Projeto (ZIP)</span>
-            <span className="sm:hidden">Baixar</span>
-          </a>
-
-          <button
-            onClick={onOpenIntegrationModal}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-emerald-900 bg-emerald-50 border border-emerald-200/90 rounded-md hover:bg-emerald-100/80 transition-colors cursor-pointer whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700"
-            title="Verificar status da integração técnica de captação de leads"
-          >
-            <Database className="w-3.5 h-3.5 text-emerald-700" />
-            <span className="hidden xs:inline">Integração</span>
-            <span className="text-[10px] text-emerald-700 font-semibold uppercase tracking-wider">Ativa</span>
-          </button>
         </div>
       </div>
     </header>
