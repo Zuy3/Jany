@@ -364,7 +364,8 @@ export function calculateQuizResult(answers: QuizAnswers): ProfileResult {
           icon: 'moon'
         }
       ],
-      recommendedGuideNote: 'No Protocolo Prático "Barriga Chapada em 7 Dias" do @zuy_silva emagrecer, você tem o cronograma exato de 7 dias com substituições inteligentes para desinchar sem passar fome.'
+      recommendedGuideNote: 'No Protocolo Prático "Barriga Chapada em 7 Dias" do @zuy_silva emagrecer, você tem o cronograma exato de 7 dias com substituições inteligentes para desinchar sem passar fome.',
+      nutritionalTip: 'Durante os próximos 7 dias, substitua feijão tradicional, alho cru e maçãs por lentilha demolhada com louro, abobrinha refogada no azeite e mamão papaia. Isso reduz em até 80% a fermentação excessiva de gases no trato digestivo.'
     };
   }
 
@@ -408,7 +409,8 @@ export function calculateQuizResult(answers: QuizAnswers): ProfileResult {
           icon: 'sun'
         }
       ],
-      recommendedGuideNote: 'O Protocolo "Barriga Chapada em 7 Dias" ensina o passo a passo exato de hidratação e chás que drenam os líquidos do abdômen sem agredir seus rins.'
+      recommendedGuideNote: 'O Protocolo "Barriga Chapada em 7 Dias" ensina o passo a passo exato de hidratação e chás que drenam os líquidos do abdômen sem agredir seus rins.',
+      nutritionalTip: 'Adicione 300ml de água morna com meio limão espremido e uma pitada de sal integral logo em jejum. Priorize no almoço pepino japonês fatiado, folhas verdes escuras e água de coco entre as refeições para restaurar a proporção potássio-sódio e desinflamar a retenção celular.'
     };
   }
 
@@ -452,7 +454,8 @@ export function calculateQuizResult(answers: QuizAnswers): ProfileResult {
           icon: 'wind'
         }
       ],
-      recommendedGuideNote: 'O método prático "Barriga Chapada em 7 Dias" ensina a sequência correta de horários e combinações leves para desinflamar o abdômen sem complicação.'
+      recommendedGuideNote: 'O método prático "Barriga Chapada em 7 Dias" ensina a sequência correta de horários e combinações leves para desinflamar o abdômen sem complicação.',
+      nutritionalTip: 'Evite mastigar alimentos acompanhados de líquidos e comece o almoço por legumes cozidos no vapor (cenoura, abóbora ou chuchu com um fio de azeite extravirgem). Eles acalmam o estômago, ativam as enzimas digestivas e reduzem a entrada de ar durante a mastigação.'
     };
   }
 
@@ -495,6 +498,7 @@ export function calculateQuizResult(answers: QuizAnswers): ProfileResult {
         icon: 'heart'
       }
     ],
-    recommendedGuideNote: 'No Protocolo "Barriga Chapada em 7 Dias", você receberá o passo a passo com receitas anti-inchaço pensadas para acalmar a digestão e recuperar o conforto do seu abdômen.'
+    recommendedGuideNote: 'No Protocolo "Barriga Chapada em 7 Dias", você receberá o passo a passo com receitas anti-inchaço pensadas para acalmar a digestão e recuperar o conforto do seu abdômen.',
+    nutritionalTip: 'Inclua no lanche da tarde 2 castanhas-do-pará ou 1 colher de sementes de abóbora tostadas junto com chá morno de camomila e erva-cidreira. O magnésio e os fitoquímicos calmantes reduzem os espasmos intestinais provocados pelo estresse e estimulam a motilidade matinal suave.'
   };
 }

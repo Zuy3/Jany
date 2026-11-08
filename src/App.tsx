@@ -4,9 +4,9 @@
  */
 
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Header } from './components/Header';
 import { HeroScreen } from './components/HeroScreen';
-import { ProgressBar } from './components/ProgressBar';
 import { QuestionCard } from './components/QuestionCard';
 import { AnalyzingScreen } from './components/AnalyzingScreen';
 import { LeadCaptureScreen } from './components/LeadCaptureScreen';
@@ -17,6 +17,7 @@ import { Footer } from './components/Footer';
 import { QUIZ_QUESTIONS, calculateQuizResult } from './data/quizQuestions';
 import { QuizAnswers, ProfileResult } from './types/quiz';
 import { analytics } from './services/analytics';
+import { useQuizSound } from './hooks/useQuizSound';
 
 type AppStep = 'hero' | 'quiz' | 'analyzing' | 'lead_capture' | 'result';
 
@@ -31,6 +32,16 @@ export default function App() {
   // Modals
   const [isIntegrationModalOpen, setIsIntegrationModalOpen] = useState(false);
   const [isPrivacyModalOpen, setIsPrivacyModalOpen] = useState(false);
+
+  // Sound effects
+  const { soundEnabled, toggleSound, playTap, playStep, playSuccess } = useQuizSound();
+
+  // Play success sound when entering result step
+  useEffect(() => {
+    if (step === 'result') {
+      playSuccess();
+    }
+  }, [step, playSuccess]);
 
   // Capture UTM parameters and trigger PageView
   useEffect(() => {
@@ -64,6 +75,7 @@ export default function App() {
 
   const handleStartQuiz = () => {
     analytics.quizStart();
+    playStep();
     setStep('quiz');
     setCurrentQuestionIndex(0);
     scrollToTop();
@@ -74,11 +86,13 @@ export default function App() {
       const defaultRes = calculateQuizResult(answers);
       setCachedResult(defaultRes);
     }
+    playSuccess();
     setStep('result');
     scrollToTop();
   };
 
   const handleSelectOption = (optionId: string) => {
+    playTap();
     const currentQ = QUIZ_QUESTIONS[currentQuestionIndex];
     setAnswers(prev => ({
       ...prev,
@@ -101,10 +115,12 @@ export default function App() {
     analytics.quizStep(currentQuestionIndex + 1, currentQ.id);
 
     if (currentQuestionIndex < QUIZ_QUESTIONS.length - 1) {
+      playStep();
       setCurrentQuestionIndex(prev => prev + 1);
       scrollToTop();
     } else {
       // Completed all questions -> calculate and move to analyzing
+      playSuccess();
       const res = calculateQuizResult(answers);
       setCachedResult(res);
       setStep('analyzing');
@@ -113,6 +129,7 @@ export default function App() {
   };
 
   const handleBackQuestion = () => {
+    playStep();
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex(prev => prev - 1);
       scrollToTop();
@@ -132,6 +149,7 @@ export default function App() {
     if (name) {
       setLeadName(name);
     }
+    playSuccess();
     setStep('result');
     scrollToTop();
   };
@@ -155,70 +173,112 @@ export default function App() {
         onOpenIntegrationModal={() => setIsIntegrationModalOpen(true)}
         onOpenPrivacyModal={() => setIsPrivacyModalOpen(true)}
         onResetQuiz={handleResetQuiz}
+        soundEnabled={soundEnabled}
+        onToggleSound={toggleSound}
       />
 
       {/* Main Interactive Stage */}
-      <main className="flex-1 flex flex-col justify-center py-4 sm:py-8 px-2 sm:px-4">
-        {step === 'hero' && (
-          <HeroScreen
-            onStartQuiz={handleStartQuiz}
-            onOpenPrivacyModal={() => setIsPrivacyModalOpen(true)}
-            onDirectToResult={handleDirectToResult}
-          />
-        )}
+      <main className="flex-1 flex flex-col justify-center py-4 sm:py-8 px-2 sm:px-4 overflow-hidden">
+        <AnimatePresence mode="wait">
+          {step === 'hero' && (
+            <motion.div
+              key="hero-step"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -14 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="w-full"
+            >
+              <HeroScreen
+                onStartQuiz={handleStartQuiz}
+                onOpenPrivacyModal={() => setIsPrivacyModalOpen(true)}
+                onDirectToResult={handleDirectToResult}
+              />
+            </motion.div>
+          )}
 
-        {step === 'quiz' && currentQuestion && (
-          <div className="w-full">
-            <ProgressBar
-              currentStep={currentQuestionIndex + 1}
-              totalSteps={QUIZ_QUESTIONS.length}
-              canGoBack={true}
-              onBack={handleBackQuestion}
-            />
+          {step === 'quiz' && currentQuestion && (
+            <motion.div
+              key={`quiz-step-${currentQuestionIndex}`}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -14 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="w-full"
+            >
+              <QuestionCard
+                question={currentQuestion}
+                currentStep={currentQuestionIndex + 1}
+                totalSteps={QUIZ_QUESTIONS.length}
+                selectedOptionId={selectedOptionForCurrent}
+                onSelectOption={handleSelectOption}
+                onNext={handleNextQuestion}
+                onBack={handleBackQuestion}
+                isFirst={currentQuestionIndex === 0}
+                isLast={currentQuestionIndex === QUIZ_QUESTIONS.length - 1}
+                leadName={leadName}
+                onNameChange={(name) => setLeadName(name)}
+              />
+            </motion.div>
+          )}
 
-            <QuestionCard
-              question={currentQuestion}
-              selectedOptionId={selectedOptionForCurrent}
-              onSelectOption={handleSelectOption}
-              onNext={handleNextQuestion}
-              onBack={handleBackQuestion}
-              isFirst={currentQuestionIndex === 0}
-              isLast={currentQuestionIndex === QUIZ_QUESTIONS.length - 1}
-              leadName={leadName}
-              onNameChange={(name) => setLeadName(name)}
-            />
-          </div>
-        )}
+          {step === 'analyzing' && (
+            <motion.div
+              key="analyzing-step"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -14 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="w-full"
+            >
+              <AnalyzingScreen 
+                onComplete={handleAnalysisComplete} 
+                leadName={leadName}
+              />
+            </motion.div>
+          )}
 
-        {step === 'analyzing' && (
-          <AnalyzingScreen 
-            onComplete={handleAnalysisComplete} 
-            leadName={leadName}
-          />
-        )}
+          {step === 'lead_capture' && cachedResult && (
+            <motion.div
+              key="lead-capture-step"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -14 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="w-full"
+            >
+              <LeadCaptureScreen
+                profileResult={cachedResult}
+                answers={answers}
+                initialName={leadName}
+                onSuccess={(leadId, name) => {
+                  handleLeadSuccess(leadId, name);
+                }}
+                onOpenPrivacyModal={() => setIsPrivacyModalOpen(true)}
+              />
+            </motion.div>
+          )}
 
-        {step === 'lead_capture' && cachedResult && (
-          <LeadCaptureScreen
-            profileResult={cachedResult}
-            answers={answers}
-            initialName={leadName}
-            onSuccess={(leadId, name) => {
-              handleLeadSuccess(leadId, name);
-            }}
-            onOpenPrivacyModal={() => setIsPrivacyModalOpen(true)}
-          />
-        )}
-
-        {step === 'result' && cachedResult && (
-          <ResultScreen
-            result={cachedResult}
-            answers={answers}
-            leadName={leadName}
-            utmParams={utmParams}
-            onReset={handleResetQuiz}
-            onOpenPrivacyModal={() => setIsPrivacyModalOpen(true)}
-          />
-        )}
+          {step === 'result' && cachedResult && (
+            <motion.div
+              key="result-step"
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -14 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              className="w-full"
+            >
+              <ResultScreen
+                result={cachedResult}
+                answers={answers}
+                leadName={leadName}
+                utmParams={utmParams}
+                onReset={handleResetQuiz}
+                onOpenPrivacyModal={() => setIsPrivacyModalOpen(true)}
+              />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </main>
 
       {/* Global Modals */}

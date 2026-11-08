@@ -1,5 +1,7 @@
 import React from 'react';
 import { ArrowRight, Clock, ShieldCheck, Sparkles, CheckCircle2, Flame, UserCheck, Heart } from 'lucide-react';
+import { HeroTestimonials } from './HeroTestimonials';
+import { HeroFaq } from './HeroFaq';
 
 interface HeroScreenProps {
   onStartQuiz: () => void;
@@ -135,9 +137,15 @@ export const HeroScreen: React.FC<HeroScreenProps> = ({
                 <span>Adultos 28+</span>
               </span>
             </div>
+
+            {/* Perguntas Frequentes sobre como o quiz funciona */}
+            <HeroFaq />
           </div>
         </div>
       </div>
+
+      {/* Social Proof & Testimonials of Quiz Takers */}
+      <HeroTestimonials onStartQuiz={onStartQuiz} />
 
       {/* Ethical Medical Notice */}
       <div className="text-center text-[11px] text-stone-500 max-w-xl mx-auto leading-relaxed">

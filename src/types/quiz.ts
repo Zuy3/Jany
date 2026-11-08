@@ -48,6 +48,7 @@ export interface ProfileResult {
     icon: string;
   }[];
   recommendedGuideNote: string;
+  nutritionalTip?: string;
 }
 
 export interface LeadPayload {

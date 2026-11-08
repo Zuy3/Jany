@@ -1,10 +1,12 @@
 import React from 'react';
-import { ShieldCheck, Database, HelpCircle } from 'lucide-react';
+import { ShieldCheck, Database, HelpCircle, Volume2, VolumeX, Download } from 'lucide-react';
 
 interface HeaderProps {
   onOpenIntegrationModal: () => void;
   onOpenPrivacyModal: () => void;
   onResetQuiz: () => void;
+  soundEnabled?: boolean;
+  onToggleSound?: () => void;
   currentStepTitle?: string;
 }
 
@@ -12,6 +14,8 @@ export const Header: React.FC<HeaderProps> = ({
   onOpenIntegrationModal,
   onOpenPrivacyModal,
   onResetQuiz,
+  soundEnabled = true,
+  onToggleSound,
 }) => {
   return (
     <header className="sticky top-0 z-40 bg-[#FAF9F5]/90 backdrop-blur-md border-b border-stone-200/80">
@@ -53,8 +57,35 @@ export const Header: React.FC<HeaderProps> = ({
           </a>
         </nav>
 
-        {/* Zone 3: Single Primary Action / System Status */}
+        {/* Zone 3: Single Primary Action / System Status & Audio Toggle */}
         <div className="flex items-center gap-2 shrink-0">
+          {onToggleSound && (
+            <button
+              type="button"
+              onClick={onToggleSound}
+              className="p-2 text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-lg transition-colors cursor-pointer"
+              title={soundEnabled ? 'Silenciar efeitos sonoros' : 'Ativar efeitos sonoros'}
+              aria-label={soundEnabled ? 'Silenciar som' : 'Ativar som'}
+            >
+              {soundEnabled ? (
+                <Volume2 className="w-4 h-4 text-emerald-800" />
+              ) : (
+                <VolumeX className="w-4 h-4 text-stone-400" />
+              )}
+            </button>
+          )}
+
+          <a
+            href="./quiz-zuy-emagrecer-html.zip"
+            download="quiz-zuy-emagrecer-html.zip"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-white bg-emerald-800 hover:bg-emerald-900 rounded-md transition-all shadow-xs cursor-pointer"
+            title="Baixar pacote completo em HTML pronto para publicar no GitHub Pages"
+          >
+            <Download className="w-3.5 h-3.5" />
+            <span className="hidden sm:inline">Baixar Projeto (ZIP)</span>
+            <span className="sm:hidden">Baixar</span>
+          </a>
+
           <button
             onClick={onOpenIntegrationModal}
             className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-emerald-900 bg-emerald-50 border border-emerald-200/90 rounded-md hover:bg-emerald-100/80 transition-colors cursor-pointer whitespace-nowrap focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700"

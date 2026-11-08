@@ -4,6 +4,8 @@ import { Check, ArrowRight, ArrowLeft, Sparkles, Lightbulb, HeartHandshake, Shie
 
 interface QuestionCardProps {
   question: QuizQuestion;
+  currentStep?: number;
+  totalSteps?: number;
   selectedOptionId?: string;
   onSelectOption: (optionId: string) => void;
   onNext: () => void;
@@ -14,8 +16,120 @@ interface QuestionCardProps {
   onNameChange?: (name: string) => void;
 }
 
+interface CardProgressBarProps {
+  currentStep: number;
+  totalSteps: number;
+  onBack?: () => void;
+  canGoBack?: boolean;
+}
+
+const CardProgressBar: React.FC<CardProgressBarProps> = ({
+  currentStep,
+  totalSteps,
+  onBack,
+  canGoBack = false,
+}) => {
+  const percentage = Math.round((currentStep / totalSteps) * 100);
+  const remainingQuestions = totalSteps - currentStep;
+
+  // Dynamic motivational text indicating how much is left
+  const getMotivationalText = () => {
+    if (currentStep === 1) return 'Início da avaliação · ~50 segundos';
+    if (remainingQuestions === 0) return 'Última pergunta! Diagnóstico quase pronto';
+    if (remainingQuestions === 1) return 'Falta apenas 1 pergunta!';
+    if (remainingQuestions <= 3) return `Faltam apenas ${remainingQuestions} perguntas`;
+    return `Faltam ${remainingQuestions} etapas para seu cronograma`;
+  };
+
+  return (
+    <div className="-mt-6 sm:-mt-9 -mx-6 sm:-mx-9 mb-6 bg-gradient-to-b from-stone-50 to-stone-50/40 border-b border-stone-200/80">
+      {/* 1. Slim Top Progress Track (Terracotta to Olive Green gradient fill) */}
+      <div 
+        className="w-full h-2 bg-stone-200/80 relative overflow-hidden" 
+        role="progressbar" 
+        aria-valuenow={percentage} 
+        aria-valuemin={0} 
+        aria-valuemax={100}
+      >
+        <div
+          className="h-full bg-gradient-to-r from-[#c2542a] via-[#b8532c] to-[#2d5a3f] transition-all duration-500 ease-out relative"
+          style={{ width: `${percentage}%` }}
+        >
+          {/* Subtle light shimmer highlight */}
+          <div className="absolute inset-0 bg-white/20 animate-pulse" />
+        </div>
+      </div>
+
+      {/* 2. Stylized Status Header with Terracotta and Olive Accents */}
+      <div className="px-5 sm:px-9 py-3 flex items-center justify-between gap-3 text-xs">
+        {/* Left: Quick Back Navigation & Step Counter */}
+        <div className="flex items-center gap-2">
+          {canGoBack && onBack && (
+            <button
+              type="button"
+              onClick={onBack}
+              className="text-[#2d5a3f] hover:text-[#1e3d2a] font-bold flex items-center gap-1 cursor-pointer py-1 px-1.5 -ml-1 rounded-lg hover:bg-emerald-100/60 transition-colors"
+              title="Voltar para a pergunta anterior"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" />
+              <span className="hidden xs:inline">Voltar</span>
+            </button>
+          )}
+
+          <div className="flex items-center gap-1.5 font-bold text-stone-800">
+            <span className="w-2 h-2 rounded-full bg-[#c2542a] shadow-xs" />
+            <span>
+              Etapa <strong className="text-stone-900 font-extrabold">{currentStep}</strong> de {totalSteps}
+            </span>
+          </div>
+        </div>
+
+        {/* Right: Remaining Questions Motivational Pill */}
+        <div className="flex items-center gap-2">
+          <span className="hidden sm:inline text-stone-600 font-medium">
+            {getMotivationalText()}
+          </span>
+
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#c2542a]/10 text-[#a9451f] border border-[#c2542a]/25 shadow-xs">
+            {remainingQuestions === 0 ? (
+              <span className="text-[#2d5a3f]">Etapa Final</span>
+            ) : (
+              <span>{percentage}% concluído</span>
+            )}
+          </span>
+        </div>
+      </div>
+
+      {/* 3. Segmented Micro-Steps (Visual step pills) */}
+      <div className="px-5 sm:px-9 pb-2.5 flex items-center gap-1 sm:gap-1.5">
+        {Array.from({ length: totalSteps }).map((_, index) => {
+          const stepNumber = index + 1;
+          const isCompleted = stepNumber < currentStep;
+          const isCurrent = stepNumber === currentStep;
+
+          return (
+            <div
+              key={index}
+              className={`h-1.5 flex-1 rounded-full transition-all duration-300 ${
+                isCompleted
+                  ? 'bg-[#2d5a3f]' // Verde oliva para etapas concluídas
+                  : isCurrent
+                  ? 'bg-[#c2542a] shadow-xs ring-2 ring-[#c2542a]/30' // Terracota para a etapa atual
+                  : 'bg-stone-200' // Neutro para etapas restantes
+              }`}
+              title={`Pergunta ${stepNumber} de ${totalSteps}`}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+};
+
 export const QuestionCard: React.FC<QuestionCardProps> = ({
   question,
+  currentStep = 1,
+  totalSteps = 8,
   selectedOptionId,
   onSelectOption,
   onNext,
@@ -84,7 +198,9 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
   // 1. Empathetic Interlude Screen
   if (question.type === 'empathetic_interlude') {
     return (
-      <div className="w-full max-w-2xl mx-auto bg-white rounded-3xl border border-stone-200/90 shadow-xl shadow-stone-200/40 p-6 sm:p-9 transition-all text-center">
+      <div className="w-full max-w-2xl mx-auto bg-white rounded-3xl border border-stone-200/90 shadow-xl shadow-stone-200/40 p-6 sm:p-9 transition-all text-center overflow-hidden">
+        <CardProgressBar currentStep={currentStep} totalSteps={totalSteps} onBack={onBack} canGoBack={!isFirst} />
+        
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-emerald-50 text-emerald-900 border border-emerald-200/80 rounded-full text-xs font-bold uppercase tracking-wider mb-5">
           <HeartHandshake className="w-4 h-4 text-emerald-600" />
           <span>Acolhimento Clínico · @zuy_silva emagrecer</span>
@@ -144,7 +260,9 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
     const isNameValid = localNameInput.trim().length >= 2;
 
     return (
-      <div className="w-full max-w-2xl mx-auto bg-white rounded-3xl border border-stone-200/90 shadow-xl shadow-stone-200/40 p-6 sm:p-9 transition-all">
+      <div className="w-full max-w-2xl mx-auto bg-white rounded-3xl border border-stone-200/90 shadow-xl shadow-stone-200/40 p-6 sm:p-9 transition-all overflow-hidden">
+        <CardProgressBar currentStep={currentStep} totalSteps={totalSteps} onBack={onBack} canGoBack={!isFirst} />
+
         <div className="mb-6">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-amber-50 text-[#964222] border border-amber-200/80 rounded-full text-[11px] font-bold tracking-wide uppercase mb-3">
             <Sparkles className="w-3.5 h-3.5 text-amber-600" />
@@ -229,7 +347,9 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
 
   // 3. Standard Options Question
   return (
-    <div className="w-full max-w-2xl mx-auto bg-white rounded-3xl border border-stone-200/90 shadow-xl shadow-stone-200/40 p-5 sm:p-9 transition-all">
+    <div className="w-full max-w-2xl mx-auto bg-white rounded-3xl border border-stone-200/90 shadow-xl shadow-stone-200/40 p-5 sm:p-9 transition-all overflow-hidden">
+      <CardProgressBar currentStep={currentStep} totalSteps={totalSteps} onBack={onBack} canGoBack={!isFirst} />
+
       {/* Header */}
       <div className="mb-5">
         <h2 className="text-xl sm:text-2xl font-extrabold text-stone-900 leading-snug tracking-tight font-display mb-2">

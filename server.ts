@@ -27,6 +27,7 @@ const PORT = cliPort || (isProduction && process.env.PORT ? Number(process.env.P
 
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Ensure data directory exists for persistent lead backup
 const DATA_DIR = path.join(__dirname, 'data');

@@ -5,22 +5,12 @@ import {
   ShieldCheck, 
   RotateCcw, 
   Sparkles, 
-  Leaf, 
-  Coffee, 
-  Moon, 
-  Clock, 
-  Droplet, 
-  Wind, 
-  Sun, 
-  Heart,
-  Lock,
-  ChevronDown,
-  Gift,
-  Zap
+  Lock, 
+  ChevronDown, 
+  Gift, 
+  Zap 
 } from 'lucide-react';
 import { ProfileResult, QuizAnswers } from '../types/quiz';
-import { getAnswersSummaryList } from '../data/quizQuestions';
-import { CustomGuidanceCard } from './CustomGuidanceCard';
 import { SocialProofCarousel } from './SocialProofCarousel';
 import { analytics } from '../services/analytics';
 
@@ -60,8 +50,6 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
   }, [utmParams]);
 
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-
-  const answersSummary = React.useMemo(() => getAnswersSummaryList(answers), [answers]);
 
   const toggleFaq = (index: number) => {
     setOpenFaq(prev => (prev === index ? null : index));
@@ -152,55 +140,10 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
         </div>
 
         {/* Clinical-like Explanation */}
-        <p className="text-stone-700 text-sm sm:text-base leading-relaxed mb-6">
+        <p className="text-stone-700 text-sm sm:text-base leading-relaxed">
           {result.summary}
         </p>
-
-        {/* Habits Breakdown */}
-        <div className="border-t border-stone-100 pt-6">
-          <h2 className="text-xs font-extrabold uppercase tracking-wider text-stone-800 mb-3 flex items-center gap-2">
-            <span>Seus 3 Principais Gatilhos Mapeados:</span>
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-            {result.detectedHabits.map((item, idx) => (
-              <div
-                key={idx}
-                className="p-3.5 rounded-xl bg-white border border-stone-200/90 shadow-2xs text-left"
-              >
-                <div className="text-xs font-bold text-stone-900 mb-1">
-                  {idx + 1}. {item.habit}
-                </div>
-                <div className="text-[11px] text-stone-600 leading-relaxed">
-                  {item.impact}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Declared Answers Summary */}
-        {answersSummary && answersSummary.length > 0 && (
-          <div className="border-t border-stone-100 pt-6 mt-6">
-            <h2 className="text-xs font-extrabold uppercase tracking-wider text-stone-800 mb-3 flex items-center gap-2">
-              <span>Suas Respostas Declaradas no Quiz:</span>
-            </h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-              {answersSummary.map((item, idx) => (
-                <div
-                  key={idx}
-                  className="p-3 rounded-xl bg-stone-50 border border-stone-200/80 text-xs flex flex-col justify-center text-left"
-                >
-                  <span className="text-[11px] font-semibold text-stone-500 mb-0.5">{item.questionLabel}</span>
-                  <span className="font-bold text-stone-900">{item.answerLabel}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
-
-      {/* Intelligent Custom Routine Guidance & Direct Conversion Card */}
-      <CustomGuidanceCard profileResult={result} leadName={leadName} checkoutUrl={checkoutUrl} />
 
       {/* 2. Educational Bridge: Why generic diets don't work */}
       <div className="bg-amber-50/70 border border-amber-200/80 rounded-2xl p-6 sm:p-8 text-amber-950">
@@ -273,32 +216,24 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
                 <div className="flex items-start gap-3">
                   <Gift className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-white block text-sm">Bônus #1: Caderno de 25 Receitas Anti-Inchaço (Valor R$ 47)</strong>
-                    <span className="text-stone-300 block text-xs mt-0.5">Pratos deliciosos de 15 minutos com ingredientes de baixíssima fermentação intestinal.</span>
+                    <strong className="text-white block text-sm">Bônus #1: 10 Bebidas Funcionais para Desinchar (Valor R$ 7,90)</strong>
+                    <span className="text-stone-300 block text-xs mt-0.5">Combinações naturais e infusões diuréticas para acelerar a quebra de toxinas e aliviar a retenção abdominal.</span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
                   <Gift className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-white block text-sm">Bônus #2: Protocolo SOS Desinchaço em 24 Horas (Valor R$ 37)</strong>
-                    <span className="text-stone-300 block text-xs mt-0.5">A fórmula de infusões de emergência para acordar leve após dias de excesso ou eventos.</span>
+                    <strong className="text-white block text-sm">Bônus #2: Cardápio Semanal Completo: 7 Dias de Refeições para emagrecer rápido (Valor R$ 19,00)</strong>
+                    <span className="text-stone-300 block text-xs mt-0.5">O roteiro diário estruturado de café, almoço e jantar anti-inchaço com alimentos simples e acessíveis.</span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
                   <Gift className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="text-white block text-sm">Bônus #3: Checklist Inteligente de Supermercado (Valor R$ 27)</strong>
-                    <span className="text-stone-300 block text-xs mt-0.5">A lista pronta para imprimir ou levar no celular, sabendo exatamente o que comprar e o que evitar.</span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3">
-                  <Gift className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="text-white block text-sm">Bônus #4: Guia dos 5 Chás Carminativos Anti-Gases (Valor R$ 29)</strong>
-                    <span className="text-stone-300 block text-xs mt-0.5">As proporções exatas de ervas para eliminar gases retidos sem dores ou cólicas.</span>
+                    <strong className="text-white block text-sm">Bônus #3: Desincha hoje com este Café da Manhã (Valor R$ 17,00)</strong>
+                    <span className="text-stone-300 block text-xs mt-0.5">A primeira refeição estratégica para ativar a motilidade digestiva e evitar estufamento já nas primeiras horas do dia.</span>
                   </div>
                 </div>
               </div>
@@ -306,7 +241,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
               {/* Price Anchor & CTA */}
               <div className="pt-2">
                 <div className="flex flex-wrap items-baseline gap-2.5 mb-1.5">
-                  <span className="text-xs text-stone-400 line-through">Valor Total: R$ 237,00</span>
+                  <span className="text-xs text-stone-400 line-through">Valor Total: R$ 140,90</span>
                   <span className="text-2xl sm:text-3xl font-black text-emerald-400">
                     Hoje por apenas R$ 29,90
                   </span>
@@ -468,7 +403,7 @@ export const ResultScreen: React.FC<ResultScreenProps> = ({
       <div className="fixed bottom-0 left-0 right-0 z-30 p-3 bg-white/95 backdrop-blur-md border-t border-stone-200 sm:hidden shadow-lg">
         <div className="flex items-center justify-between gap-3 max-w-md mx-auto">
           <div>
-            <div className="text-[10px] text-stone-500 line-through">Valor Total: R$ 237,00</div>
+            <div className="text-[10px] text-stone-500 line-through">Valor Total: R$ 140,90</div>
             <div className="text-xs font-black text-emerald-800">Apenas R$ 29,90</div>
           </div>
           <a
